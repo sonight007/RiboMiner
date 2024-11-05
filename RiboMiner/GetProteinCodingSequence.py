@@ -30,7 +30,7 @@ def extract_protein_coding_sequence(transcriptFile,startCodonCoorDict,stopCodonC
 			trans_sequence=trans_sequence_dict[trans]
 			startCoor=int(startCodonCoorDict[trans])-1 # 0-based
 			stopCoor=int(stopCodonCoorDict[trans])-3 # 0-based , the first base of stop codon
-			cds_sequence=trans_sequence[startCoor:(stopCoor+3)]
+			cds_sequence=trans_sequence[startCoor-21:(stopCoor+24)]
 			AA_sequence=translation(cds_sequence,table=table,cds=False)
 			AA_sequence_length=len(AA_sequence)
 			trans_sequence_length=len(trans_sequence)
